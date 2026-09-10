@@ -1,0 +1,64 @@
+{
+  "name": "gemini-syntax-checker",
+  "displayName": "gemini-syntax-checker",
+  "description": "syntax checker that utilizes gemini API",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.137.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "geminiChecker.checkSyntax",
+        "title": "Gemini: Validar Linhas Marcadas (:??)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "geminiChecker.checkSyntax",
+        "key": "ctrl+shift+g",
+        "mac": "cmd+shift+g"
+      }
+    ],
+    "configuration": {
+      "title": "Gemini Checker",
+      "properties": {
+        "geminiChecker.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Gemini API Key"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.137.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  },
+  "dependencies": {
+    "@google/genai": "^2.21.0"
+  }
+}
